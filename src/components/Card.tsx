@@ -1,19 +1,19 @@
-import { useState } from "react"
+import {  useState } from "react"
 import type { cardType } from "../App"
 
 
-const Card = (props: cardType[]) => {
+const Card = ({cardData}: {cardData:cardType[]}) => {
 
     const [flipped, setFlipped] = useState<boolean>(false)
 
     const [currentIdx, setCurrentIdx] = useState<number>(1)
-    const [currentData, setCurrentData] = useState<cardType>(props[currentIdx - 1])
+    const [currentData, setCurrentData] = useState<cardType>(cardData[currentIdx - 1])
     
 
     const nextQuestion = () => {
         setFlipped(false)
-        console.log(currentIdx)
 
+        console.log(cardData.length)
         if(currentIdx >= 12)
         {
             window.location.reload()
@@ -22,13 +22,14 @@ const Card = (props: cardType[]) => {
         {
             setCurrentIdx(prev => prev + 1)
         }
-        setCurrentData(props[currentIdx])
+        setCurrentData(cardData[currentIdx])
         
     }
+   
 
   return (
-    <div>
-        <section>
+    <div className="cardContainer">
+        <section className="flipCardSection">
             <div className="flip-card" >
                 <div className="flip-card-inner"
                      onClick={() => {!flipped && setFlipped(true)
@@ -44,7 +45,7 @@ const Card = (props: cardType[]) => {
                         <h2>
                             {currentData && currentData.answer}    
                         </h2> 
-                        <div>
+                        <div className="buttonContainer">
                             <button className="button1"
                                 onClick={nextQuestion}
                             >
@@ -64,8 +65,9 @@ const Card = (props: cardType[]) => {
                 </div>
             </div>
         </section>
-        <section>
-            {currentIdx} / 12
+        <section className="counterSection">
+            <h3>{currentIdx} / {cardData.length}</h3>
+            <progress max={cardData.length} value={currentIdx}></progress>
         </section>
     </div>
   )

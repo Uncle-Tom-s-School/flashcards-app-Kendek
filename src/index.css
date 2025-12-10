@@ -13,6 +13,7 @@
 body{
   width: 100%;
   min-height: 100vh;
+  background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 .container
@@ -22,6 +23,23 @@ body{
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.counterSection
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
 }
 
 
@@ -40,6 +58,7 @@ body{
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 15px;
 }
 
 
@@ -50,20 +69,36 @@ body{
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+
+  border-radius: 15px;
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background: linear-gradient(90deg,rgba(51, 255, 0, 1) 0%, rgb(39, 255, 46) 35%, rgba(217, 249, 255, 1) 100%);
   color: black;
+
+  padding: 15px;
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
   color: white;
   transform: rotateY(180deg);
 
+  padding: 15px;
+
   display: flex;
   flex-direction: column;
+
+  gap: 25px;
+
+  >.buttonContainer
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
 
   >button
   {
@@ -71,6 +106,5 @@ body{
     height: 70px;
     text-decoration: none;
   }
-
  
 }

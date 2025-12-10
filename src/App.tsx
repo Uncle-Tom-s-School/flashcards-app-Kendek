@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className="container">
-      {data.length > 0 && <Card {...data}/>}
+      {data.length > 0 && <Card cardData={data} />}
     </div>
   )
 }
