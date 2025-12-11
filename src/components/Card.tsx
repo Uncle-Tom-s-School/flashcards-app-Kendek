@@ -46,20 +46,20 @@ const Card = ({cardData}: {cardData:cardType[]}) => {
                             {currentData && currentData.answer}    
                         </h2> 
                         <div className="buttonContainer">
-                            <button className="button1"
+                            <div className="button1"
                                 onClick={nextQuestion}
                             >
                                 Eltaláltam
                                 <br/>
                                 <i className="fa-regular fa-circle-check"></i>
-                            </button>
-                            <button className="button2"
+                            </div>
+                            <div className="button2"
                                 onClick={nextQuestion}
                             >
                                 Nem sikerült
                                 <br/>
                                 <i className="fa-regular fa-circle-xmark"></i>
-                            </button>
+                            </div>
                         </div>    
                     </div>
                 </div>
